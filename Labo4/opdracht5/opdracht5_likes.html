@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ilona Defevere</title>
+</head>
+<!--opmaak-->
+<!--fout bij opmaak style element, mag ik niet gebruiken-->
+<!--zal ik voorlopig laten staan, nu nog geen css gezien-->
+<style>
+  * {
+    font-family: Verdana,serif;
+    text-align: center;
+  }
+  body{
+    background-color: darkcyan;
+  }
+  main {
+    border: 2px solid black;
+    margin-left: 140px;
+    margin-right: 140px;
+    height: 1025px;
+    background-color: ghostwhite;
+  }
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+ol, ul {
+  padding: 10px;
+  list-style-position: inside;
+  font-size: 20px;
+}
+ul {
+  font-size: 15px;
+}
+</style>
+<body>
+<header>
+  <ul style="list-style-type: none; padding: 0; margin-left: 150px; margin-right: 150px; overflow: hidden; background-color: yellowgreen">
+    <li style="float: left"><a style="display:block; color:white; text-align:center; padding: 16px; text-decoration: none" href="opdracht5_index.html">Index</a></li>
+    <li style="float: left"><a style="display:block; color:white; text-align:center; padding: 16px; text-decoration: none" href="opdracht5_hobbys.html">Hobby's</a></li>
+    <li style="float: left"><a style="display:block; color:white; text-align:center; padding: 16px; text-decoration: none"  href="opdracht5_likes.html">Likes</a></li>
+  </ul>
+</header>
+<!--main met elementen-->
+<main>
+  <section>
+    <!--likes-->
+    <h1>Favoriete</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Film</th>
+        <th>Muziek</th>
+        <th>Band</th>
+      </tr>
+    </thead>
+    <tbody>
+  <!--naam-->
+    <tr>
+      <td>Star Wars</td>
+      <td>Genre: indie rock</td>
+      <td>Geen idee</td>
+    </tr>
+  <!--foto-->
+    <tr>
+      <td><img src="../images/logostarwars.png" width="200" height="100" alt="LogoStarWars"></td>
+      <td><img src="../images/indierock.jpg" width="100" height="100" alt="IndieRock"></td>
+      <td><img src="../images/geenidee.jpg" width="100" height="100" alt="GeenIdee"></td>
+    </tr>
+  <!--link website-->
+  <tr>
+    <td>Link <a href="https://www.starwars.com/">Star Wars</a> webiste</td>
+    <td>Link <a href="https://en.wikipedia.org/wiki/Indie_rock">Wikipedia indie rock</a></td>
+    <td>Link <a href="https://en.wikipedia.org/wiki/Band">Wikipedia band</a></td>
+  </tr>
+  </tbody>
+  </table>
+  </section>
+</main>
+<footer></footer>
+</body>
+</html>

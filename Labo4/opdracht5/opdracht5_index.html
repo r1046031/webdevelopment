@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ilona Defevere</title>
+</head>
+<!--opmaak-->
+<!--fout bij opmaak style element, mag ik niet gebruiken-->
+<!--zal ik voorlopig laten staan, nu nog geen css gezien-->
+<style>
+  * {
+    font-family: Verdana,serif;
+    text-align: center;
+  }
+  body{
+    background-color: darkcyan;
+  }
+  main {
+    border: 2px solid black;
+    margin-left: 140px;
+    margin-right: 140px;
+    height: 1025px;
+    background-color: ghostwhite;
+  }
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+ol, ul {
+  padding: 10px;
+  list-style-position: inside;
+  font-size: 20px;
+}
+ul {
+  font-size: 15px;
+}
+</style>
+<body>
+<header>
+  <ul style="list-style-type: none; padding: 0; margin-left: 150px; margin-right: 150px; overflow: hidden; background-color: yellowgreen">
+    <li style="float: left"><a style="display:block; color:white; text-align:center; padding: 16px; text-decoration: none" href="opdracht5_index.html">Index</a></li>
+    <li style="float: left"><a style="display:block; color:white; text-align:center; padding: 16px; text-decoration: none" href="opdracht5_hobbys.html">Hobby's</a></li>
+    <li style="float: left"><a style="display:block; color:white; text-align:center; padding: 16px; text-decoration: none"  href="opdracht5_likes.html">Likes</a></li>
+  </ul>
+</header>
+<!--main met elementen-->
+<main>
+  <section>
+    <h1>Wie ben ik?</h1>
+    <!--tabel met info-->
+    <!--hier had ik ook een error met mijn tables (+alle andere tables), tfoot weggedaan en content tfoot in tbody geplaatst en nu wel ok-->
+  <table>
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>Adres</th>
+        <th>Telefoonnummer</th>
+        <th>E-mailadres</th>
+        <th>Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ilona Defevere</td>
+        <td>Brugge</td>
+        <td>+32 488 88 88</td>
+        <td>ilona.defevere@student.vives.be</td>
+        <td><img src="../images/fotoilona.jpg" width="120" height="150" alt="FotoIlona"></td>
+      </tr>
+    </tbody>
+  </table>
+  </section>
+  <!--voor dit onderdeel denk ik een article te hoeven gebruiken, maar ben niet zeker-->
+  <article>
+  <!--prognose tabel-->
+  <table>
+    <caption><h1>Prognose</h1></caption>
+    <thead>
+      <tr>
+        <td>Naam</td>
+        <td>Web Development</td>
+        <td>Databases</td>
+        <td>Fundamentals of programming</td>
+      </tr>
+    </thead>
+    <tbody>
+    <!--prognose lln1-->
+      <tr>
+        <td>Ilona</td>
+        <td>13</td>
+        <td>10</td>
+        <td>13</td>
+      </tr>
+    <!--prognose lln2-->
+      <tr>
+        <td>Leerling A</td>
+        <td>10</td>
+        <td>15</td>
+        <td>13</td>
+      </tr>
+    <!--prognose lln3-->
+      <tr>
+        <td>Leerling B</td>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+      </tr>
+    <!--prognose lln4-->
+    <tr>
+      <td>Leerling C</td>
+      <td>15</td>
+      <td>9</td>
+      <td>15</td>
+    </tr>
+    </tbody>
+  </table>
+  </article>
+</main>
+<footer></footer>
+</body>
+</html>
