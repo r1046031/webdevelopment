@@ -1,0 +1,6 @@
+.menu li {
+    display:inline-block; width:150px;
+}
+.menu a {
+    color:red;
+}
