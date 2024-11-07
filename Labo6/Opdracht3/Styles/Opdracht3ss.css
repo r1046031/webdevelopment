@@ -1,5 +1,5 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 
 h1 {
@@ -14,12 +14,28 @@ a {
     color: #EF233C;
 }
 
-header {
+header, footer, .education {
+    padding: 30px;
+    margin: 10px;
+}
+
+header, footer {
     background-color: #2B2D42;
-    margin: 0;
     color: #8D99AE;
 }
 
-header h1,h2 {
+header {
+    margin-bottom: 10px;
+}
+
+header h1, header h2 {
     color: #EDF2F4;
+}
+
+.education {
+    background-color: #8D99AE;
+}
+
+footer {
+    margin-top: 10px;
 }
