@@ -1,7 +1,15 @@
-.checklist {
-
+.checklist li{
+    list-style-type: none;
+    background-image: url("../../Images/unchecked.jpg");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
 }
 
-.checked {
-
+.checklist .checked {
+    list-style-type: none;
+    background-image: url("../../Images/checked.jpg");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
 }

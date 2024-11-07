@@ -6,10 +6,9 @@ a::before {
     content: "";
     width: 16px;
     height: 16px;
-    background-image: url("/Labo6/Images/smiley.png");
-    background-size: contain; /* Ensure the image fits the element */
-    margin-right: 5px; /* Add some space between icon and link text */
-    vertical-align: middle; /* Align icon with the text */
-    pointer-events: none; /* Allow clicks to pass through pseudo-element to the link */
+    background-image: url("../../Images/smiley.png");
+    background-size: contain;
+    margin-right: 5px;
+    vertical-align: middle;
     display: inline-block;
 }
