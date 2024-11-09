@@ -4,8 +4,8 @@ p {
 
 a::before {
     content: "";
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     background-image: url("../../Images/smiley.png");
     background-size: contain;
     margin-right: 5px;

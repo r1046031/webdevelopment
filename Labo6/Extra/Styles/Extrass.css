@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div#Vives {
+    border: 5px solid red;
+    width: 100px;
+    margin: 50px auto;
+}
+
+div#Vives h1 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
