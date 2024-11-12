@@ -1,0 +1,36 @@
+.homepage_blog_body {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.homepage_blog_body.header_pagina {
+    background-image: url("../../Images/header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homepage_blog_body.header_pagina h1 {
+    color: white;
+    font-weight: bold;
+    float: left;
+}
+
+.navigatiebalk {
+    background-color: #444444;
+}
+
+.navigatiebalk a:link, a:visited {
+    color: #50d077;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+article {
+    background-color: #eeeeee;
+
+}
+
+article h1 {
+    text-decoration: underline;
+    font-size: 1.5em;
+}
