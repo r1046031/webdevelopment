@@ -3,38 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Ilona Defevere</title>
+  <link rel="stylesheet" href="Styles/PersonalHomepagess.css">
 </head>
-<!--opmaak-->
-<style>
-  * {
-    font-family: Verdana,serif;
-    text-align: center;
-  }
-  body{
-    background-color: darkcyan;
-  }
-  main {
-    border: 2px solid black;
-    margin-left: 140px;
-    margin-right: 140px;
-    height: 900px;
-    background-color: ghostwhite;
-  }
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-}
-ol, ul {
-  padding: 10px;
-  list-style-position: inside;
-  font-size: 20px;
-}
-ul {
-  font-size: 15px;
-}
-</style>
 <body>
 <header></header>
 <!--main met elementen-->
@@ -52,7 +22,7 @@ ul {
         <th>Foto</th>
       </tr>
     </thead>
-    <tfoot>
+    <tbody>
       <tr>
         <td>Ilona Defevere</td>
         <td>Brugge</td>
@@ -60,9 +30,11 @@ ul {
         <td>ilona.defevere@student.vives.be</td>
         <td><img src="../Images/fotoilona.jpg" width="120" height="150" alt="FotoIlona"></td>
       </tr>
-    </tfoot>
+    </tbody>
   </table>
+  </section>
     <!--hobby's-->
+  <section>
     <h1>Hobby's</h1>
     <ol>
       <li>Lezen
@@ -84,7 +56,9 @@ ul {
       </ul>
       </li>
     </ol>
+  </section>
     <!--likes-->
+  <section>
     <h1>Favoriete</h1>
   <table>
     <thead>
@@ -94,14 +68,6 @@ ul {
         <th>Band</th>
       </tr>
     </thead>
-    <tfoot>
-    <!--link website-->
-      <tr>
-        <td>Link <a href="https://www.starwars.com/">Star Wars</a> webiste</td>
-        <td>Link <a href="https://en.wikipedia.org/wiki/Indie_rock">Wikipedia indie rock</a></td>
-        <td>Link <a href="https://en.wikipedia.org/wiki/Band">Wikipedia band</a></td>
-      </tr>
-    </tfoot>
     <tbody>
   <!--naam-->
     <tr>
@@ -115,8 +81,64 @@ ul {
       <td><img src="../Images/indierock.jpg" width="100" height="100" alt="IndieRock"></td>
       <td><img src="../Images/geenidee.jpg" width="100" height="100" alt="GeenIdee"></td>
     </tr>
+  <!--link website-->
+  <tr>
+    <td>Link <a href="https://www.starwars.com/">Star Wars</a> webiste</td>
+    <td>Link <a href="https://en.wikipedia.org/wiki/Indie_rock">Wikipedia indie rock</a></td>
+    <td>Link <a href="https://en.wikipedia.org/wiki/Band">Wikipedia band</a></td>
+  </tr>
   </tbody>
   </table>
+  </section>
+  <!--Opdracht 2-->
+  <section>
+    <h1>Opdracht 2 &amp; 3</h1>
+    <table class="FictieveVriendenTabel">
+      <thead>
+      <tr>
+        <th>Voornaam</th>
+        <th>Familienaam</th>
+        <th>Postcode</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="alt">
+        <td>Berend</td>
+        <td>Brokkepap</td>
+        <td>Piet Piraat's schip</td>
+      </tr>
+      <tr>
+        <td>Plop</td>
+        <td>Kabouter</td>
+        <td>Paddenstoel</td>
+      </tr>
+      <tr class="alt">
+        <td>Samson</td>
+        <td>Geen</td>
+        <td>Leon Dumortierstraat 67 - HOVE</td>
+      </tr>
+      <tr>
+        <td>Gert</td>
+        <td>Verhulst</td>
+        <td>Leon Dumortierstraat 67 - HOVE</td>
+      </tr>
+      <tr class="alt">
+        <td class="onbekend"></td>
+        <td>X</td>
+        <td>Y</td>
+      </tr>
+      <tr>
+        <td>Z</td>
+        <td class="onbekend"></td>
+        <td class="onbekend"></td>
+      </tr>
+      </tbody>
+    </table>
+    <h2>Opdracht 2</h2>
+    <p>Niet alle properties die de generator voorziet zijn nodig.</p>
+    <p>Ik denk niet dat hij bij mij browser prefixes heeft gebruikt, maar ik denk dat de meeste niet meer nodig zouden zijn.</p>
+    <h2>Opdracht 3</h2>
+    <p>Bij mij gingen de cellen zonder class alt en met class alt op rood. Bij de opdracht denk ik dat de css regel niet genoeg gespecificeerd was. Misschien most deze .tabelklasse .onbekend { ... }worden?</p>
   </section>
 </main>
 <footer></footer>

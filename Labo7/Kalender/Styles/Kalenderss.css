@@ -1,0 +1,42 @@
+table {
+    border: 3px solid black;
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+/*2 eerste rijen*/
+table thead th {
+    border: 1px dotted white;
+}
+
+table thead tr:first-child {
+    background-color: #006699;
+    color: black;
+}
+
+table thead tr:nth-child(2) {
+    background-color: #091971;
+    color: #0a7ee9;
+}
+
+/*randje tussen cellen*/
+table tbody td {
+    border: 1px dotted black;
+}
+
+/*eerste en laaste rij van tbody*/
+table tbody tr td:first-child, table tbody tr td:last-child {
+    background-color: #00ffff;
+}
+
+/*grijze cellen*/
+table tbody tr:first-child td:first-child, table tbody tr:last-child td:nth-child(5), table tbody tr:last-child td:nth-child(6), table tbody tr:last-child td:last-child {
+    background-color: #cccccc;
+    color: #b5b3b1;
+}
+
+/*de 16de*/
+table tbody tr:nth-child(3) td:nth-child(3) {
+    background-color: #ff7f50;
+}
