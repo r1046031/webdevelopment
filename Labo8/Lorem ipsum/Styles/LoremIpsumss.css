@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    box-sizing: border-box;
+    width: 50%;
+    border: 1px solid black;
+    float: left;
+    padding: 10px;
+}
