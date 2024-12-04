@@ -1,0 +1,11 @@
+.container-fluid .row div{
+    height: 150px;
+}
+
+.container-fluid .row div:nth-child(odd) {
+    background-color: lightgray;
+}
+
+.container-fluid .row div:nth-child(even) {
+    background-color: gray;
+}
