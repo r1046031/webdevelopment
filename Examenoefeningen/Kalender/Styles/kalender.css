@@ -1,0 +1,44 @@
+table {
+    margin: 0 auto;
+    padding: 0;
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+}
+
+table th, table td {
+    padding: 0; /* Ensures no extra space inside cells */
+    border: 1px dotted black;
+    margin: 0; /* Margin isn't needed for table cells but ensures consistency */
+}
+
+table tr {
+    padding: 0;
+    margin: 0;
+}
+
+table thead tr:first-child {
+    background-color: #006699;
+}
+
+table thead tr:last-child {
+    background-color: #091971;
+    color: #0a7ee9;
+}
+
+table tbody tr td:first-child, table tbody tr td:last-child {
+    background-color: #00ffff;
+}
+
+table tbody tr:first-child td:first-child,
+table tbody tr:last-child td:nth-child(5),
+table tbody tr:last-child td:nth-child(6),
+table tbody tr:last-child td:last-child {
+    background-color: #cccccc;
+    color: #b5b3b1;
+}
+
+table tbody tr:nth-child(3) td:nth-child(3) {
+    background-color: #ff7f50;
+}

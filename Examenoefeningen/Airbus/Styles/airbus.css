@@ -1,0 +1,114 @@
+body {
+    width: 90%;
+    padding: 0;
+    margin: 0 auto 30px auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-image: url(../Images/bgsky3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    margin-top: -35px;
+    position: relative;
+}
+
+header h1, header h2 {
+    color: #00008b;
+    text-align: center;
+}
+
+header h1 {
+    font-style: italic;
+    font-size: 3em;
+}
+
+header h2 {
+    font-size: 2.5em;
+    margin: 0;
+    padding-top: 30px;
+}
+
+header img {
+    position: absolute;
+    right: 35%;
+    top: 20%;
+}
+
+main {
+    float: left;
+    width: 75%;
+}
+
+main section:first-child p {
+    background-image: url(../Images/airbus_logo.jpg);
+    background-repeat: no-repeat;
+    padding-left: 130px;
+}
+
+main section:first-child p span {
+    font-weight: bold;
+}
+
+main section:first-child p span:last-child {
+    font-style: italic;
+    color: blue;
+}
+
+main section:last-child {
+    background-color: #999999;
+}
+
+
+main section:last-child div {
+    background-color: white;
+    float: left;
+    margin: 10px;
+}
+
+aside {
+    float: right;
+    width: 24%;
+    background-color: #dddddd;
+    color: #666666;
+    padding: 0;
+    margin: 0;
+    border: 1px grey solid;
+}
+
+aside h1 {
+    background-color: #0000ff;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 0;
+}
+
+footer {
+    clear: both;
+    background-color: #666666;
+}
+
+footer section section {
+    color: white;
+    padding-left: 10px;
+    line-height: 2em;
+}
+
+footer section section:first-child {
+    float: left;
+    width: 48%;
+}
+
+footer section section:last-child {
+    float: right;
+    width: 48%;
+}
+
+footer p {
+    clear: both;
+    text-align: center;
+    background-color: white;
+    padding-top: 10px;
+}

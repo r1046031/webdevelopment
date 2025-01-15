@@ -1,0 +1,12 @@
+body main {
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+main section {
+    border: 2px solid black;
+    display: inline-block;
+    width: 30%;
+    text-align: left;
+    margin: 10px;
+}

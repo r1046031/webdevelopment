@@ -1,0 +1,33 @@
+body {
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    padding: 10px;
+}
+
+body section:first-child {
+    background-color: yellow;
+    width: 48%;
+    height: 300px;
+    float: left;
+    margin: 5px;
+    position: relative;
+}
+
+body section:last-child {
+    background-color: green;
+    width: 48%;
+    height: 300px;
+    float: right;
+    margin: 5px;
+    position: relative;
+}
+
+body section div {
+    background-color: blue;
+    width: 30%;
+    height: 80px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 250px;
+}

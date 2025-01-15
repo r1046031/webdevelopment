@@ -1,0 +1,219 @@
+body {
+    padding: 0;
+    margin: 0 auto 30px auto;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-rows: 0.05fr 1fr 0.01fr 0.5fr 0.5fr;
+    grid-template-columns: 1fr;
+}
+
+header {
+    background-image: url(../Images/bgsky3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    margin-top: -35px;
+    position: relative;
+    grid-row-start: 1;
+}
+
+header h1, header h2 {
+    color: #00008b;
+    text-align: center;
+}
+
+header h1 {
+    font-style: italic;
+    font-size: 3em;
+}
+
+header h2 {
+    font-size: 2.5em;
+    margin-top: -10px;
+}
+
+header img {
+    position: absolute;
+    right: 35%;
+    top: 30%;
+}
+
+main section:first-child {
+    grid-row-start: 2;
+}
+
+main section:last-child {
+    grid-row-start: 3;
+}
+
+main section:first-child p {
+    background-image: url(../Images/airbus_logo.jpg);
+    background-repeat: no-repeat;
+    padding-left: 130px;
+}
+
+main section:first-child p span {
+    font-weight: bold;
+}
+
+main section:first-child p span:last-child {
+    font-style: italic;
+    color: blue;
+}
+
+main section:last-child {
+    background-color: #999999;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+main section:last-child div {
+    background-color: white;
+    margin: 10px;
+}
+
+main section:last-child div {
+    margin: 0 auto 0 auto;
+}
+
+aside {
+    grid-row-start: 4;
+    width: 100%;
+    background-color: #dddddd;
+    color: #666666;
+    padding: 0;
+    margin: 0;
+    border: 1px grey solid;
+}
+
+aside h1 {
+    background-color: #0000ff;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 0;
+}
+
+footer {
+    grid-row-start: 5;
+}
+
+footer section {
+    display: grid;
+    grid-template-rows: 0.05fr 0.05fr;
+    grid-template-columns: 1fr;
+    background-color: #666666;
+}
+
+footer section section {
+    color: white;
+    padding-left: 10px;
+    line-height: 2em;
+}
+
+footer p {
+    clear: both;
+    text-align: center;
+    background-color: white;
+    padding-top: 10px;
+}
+
+/*
+@media screen and (min-width: 768px) {
+    body {
+        width: 90%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 0.05fr 0.05fr 0.05fr;
+    }
+    header h2 {
+        margin: 30px;
+    }
+    header {
+        grid-row-start: 1;
+        grid-row-end: 1;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    main section:first-child {
+        grid-row-start: 2;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    main section:last-child {
+        grid-row-start: 3;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    aside {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+    footer {
+        grid-row-start: 4;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    main section:last-child {
+        background-color: #999999;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+*/
+@media screen and (min-width: 768px) {
+    body {
+        width: 90%;
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* Ensure 4 columns layout */
+        grid-template-rows: auto auto auto; /* Make rows auto-adjusting */
+    }
+
+    header {
+        grid-column-start: 1;
+        grid-column-end: 5; /* Span across all columns */
+        height: auto; /* Let content define height */
+    }
+
+    main section:first-child {
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-column-end: 4; /* Span across the first three columns */
+    }
+
+    main section:last-child {
+        grid-row-start: 3;
+        grid-column-start: 1;
+        grid-column-end: 4; /* Span across the first three columns */
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    aside {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+
+    footer {
+        grid-row-start: 4;
+        grid-row-end: 5;
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+
+    footer section {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        background-color: #666666;
+    }
+}

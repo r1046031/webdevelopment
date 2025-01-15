@@ -1,0 +1,179 @@
+/** Volgende CSS gaan we ze geven **/
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.respimg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+header {
+    border-bottom: 1px solid #ebe8e8;
+    margin: 0 auto 0 auto;
+}
+
+header img {
+    height: 50px;
+}
+
+nav {
+    width: 600px;
+    margin: 0 auto 0 auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+nav ul li {
+    display: inline-block;
+    width: 12%;
+    border-right: 1px solid #ebe8e8;
+    text-align: center;
+}
+
+nav a {
+    color: darkgray;
+    text-decoration: none;
+}
+
+nav ul li:hover {
+    text-decoration: underline #fff100;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+main section:nth-child(2), main section:last-child {
+    width: 60%;
+    margin: 0 auto 0 auto;
+}
+
+main .image_banner {
+    background-image: url("images/headerimage.jpg");
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    position: relative;
+}
+
+main .image_banner h1 {
+    color: white;
+    font-size: 3em;
+    border: none;
+    text-transform: none;
+    position: absolute;
+    top: 35%;
+    left: 22%;
+    text-shadow: darkgray 1px 1px 1px;
+}
+
+section h1 {
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    font-weight: normal;
+}
+
+main section:nth-child(2) .container-fluid h1 {
+    text-transform: none;
+    border: none;
+    font-weight: bold;
+}
+
+main section:nth-child(2) .container-fluid .row {
+    display: block;
+}
+
+main section:nth-child(2) article {
+    border: none;
+}
+
+main section:nth-child(2) div img {
+    width: 300px;
+    height: 200px;
+}
+
+main section:nth-child(2) article {
+    border-top: 1px solid #ebe8e8;
+}
+
+main section:nth-child(2) article .article_red_title {
+    text-transform: uppercase;
+    color: red;
+    margin-top: 10px;
+}
+
+main section:nth-child(2) article .author span {
+    font-style: italic;
+    font-weight: bold;
+}
+
+main section:last-child .container-fluid .row {
+    display: block;
+}
+
+main section:last-child .container-fluid .row div {
+    margin-bottom: 10px;
+}
+
+main section:last-child .container-fluid .row div img {
+    width: 230px;
+    height: 150px;
+}
+
+footer {
+    border-top: 1px solid #ebe8e8;
+}
+
+footer div .left {
+    text-transform: uppercase;
+}
+
+footer div .right {
+    background-color: black;
+    color: white;
+}
+
+@media screen and (min-width: 770px) {
+    nav {
+        width: 750px;
+    }
+
+    main section:nth-child(2) .container-fluid .row {
+        display: flex;
+    }
+
+    main section:nth-child(2) .container-fluid .row div {
+        display: inline;
+    }
+
+    main section:last-child .container-fluid {
+        width: 100%;
+    }
+
+    main section:last-child .container-fluid .row {
+        display: flex;
+        width: 100%;
+    }
+
+    main section:last-child .container-fluid .row div {
+        display: inline;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    nav {
+        width: 900px;
+    }
+}

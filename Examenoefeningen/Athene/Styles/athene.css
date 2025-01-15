@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90%;
+    margin: 10px auto 40px auto;
+    padding: 0;
+}
+
+header {
+    background-image: url("../Images/view_athene1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+header h1 {
+    font-weight: bold;
+    font-size: 3em;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+header nav {
+    font-size: 1.3em;
+}
+
+header nav ul {
+    list-style-type: none;
+    background-color: darkgrey;
+    padding-left: 10px;
+}
+
+header nav ul li {
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 120px;
+    text-align: center;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav ul li:hover {
+    background-color: lightskyblue;
+    cursor: pointer;
+
+    a:after {
+        content: url("../Images/vliegtuigje.png");
+    }
+}
+
+main, footer {
+    border: 2px solid black;
+}
+
+main {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 2px solid white;
+}
+
+main img {
+    width: 400px;
+    height: 250px;
+}
+
+main .fotocollage {
+    margin-bottom: 10px;
+}
+
+main .fotocollage .container-fluid {
+    width: 100%;
+}
+
+.fotocollage .row {
+    gap: 10px; /* Keep a gap between columns */
+    padding: 0;
+    margin: 0;
+    display: block; /* Ensure Bootstrap's flexbox grid layout is applied */
+}
+
+main .fotocollage .row div {
+    border: 3px solid #01d0fa;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 10px;
+}
+
+main .fotocollage .col-6 img {
+    width: 100%; /* Ensure images are responsive */
+    height: auto;
+}
+
+main .fotocollage .col-6 {
+    text-align: center;
+}
+
+main .eten img:first-child {
+    height: 300px;
+}
+
+main .eten img:last-child {
+    width: 400px;
+    height: 500px;
+}
+
+main .eten .row {
+    display: block;
+}
+
+main .eten .row:first-child li, main .eten .row:first-child h1 {
+    text-align: left;
+}
+
+main .eten .row:nth-child(2), main .eten .row:last-child {
+    text-align: center;
+}
+
+main .eten .row div p {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 2px solid white;
+}
+
+/* Media Queries */
+@media screen and (min-width: 1256px) {
+    .eten .row {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fotocollage .row {
+        display: flex; /* Ensure Bootstrap grid behavior */
+    }
+
+    .fotocollage .row div {
+        width: 49%;
+    }
+}

@@ -1,0 +1,11 @@
+table {
+    border: 1px solid black; /* Replicates border attribute */
+    width: 50%;             /* Replicates width attribute */
+    border-collapse: collapse; /* Removes cell spacing */
+    margin: 0 auto 0 auto;
+}
+
+td, th {
+    padding: 5px;           /* Replicates cellpadding attribute */
+    border: 1px solid black; /* Adds borders around individual cells */
+}

@@ -1,0 +1,20 @@
+body {
+    font-size: 1.2em;
+    font-family: Calibri, sans-serif;
+}
+
+li {
+    list-style-type: none;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    list-style-image: url(../Images/unchecked.png);
+}
+
+li.checked {
+    list-style-type: none;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    list-style-image: url(../Images/checked.png);
+}
