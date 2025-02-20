@@ -1,0 +1,17 @@
+1.
+De event listener wordt gekoppeld aan de slider
+bij regel 7 & 8 van de js file (code.js).
+Er zijn 2 event listeners:
+	sliders[0].addEventListener("change", update);
+	sliders[0].addEventListener("input", update);
+
+2.
+Omdat er een verschil is bij browsers van hoe ze sliders interpreteren
+daarom worden bijde gebruikt zodat de functie op meerdere browsers werkt.
+
+3.
+In JS, regel 11: colorDemos[0].style.backgroundColor="red";
+Ervoor wordt het element opgehaald in regel 2: et colorDemos=document.getElementsByClassName("colorDemo");
+
+4.
+Als je in je html meerdere sliders of blokjes wil toevoegen, dan blijft je js dan nog werken.
