@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Styles/style.css">
+    <title>Invulformulier</title>
+</head>
+<body>
+<form>
+    <label>First name*: </label>
+    <input class="default" type="text" placeholder="Your first name" autofocus="autofocus">
+
+    <label>Last name*: </label>
+    <input type="text" placeholder="Your last name">
+
+    <div id="sports">
+    <label>Which sport do you train?</label>
+        <div id="checkboxes">
+            <input type="checkbox" id="running" value="Running">
+            <label for="running">Running</label>
+
+            <input type="checkbox" id="swimming" value="Swimming">
+            <label for="swimming">Swimming</label>
+
+            <input type="checkbox" id="rowing" value="Rowing">
+            <label for="rowing">Rowing</label>
+        </div>
+    </div>
+
+    <div id="gender">
+    <label>What is your gender?</label>
+        <div id="radiobuttons">
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+        </div>
+    </div>
+
+    <label>Favorite movie: </label>
+    <input type="text">
+
+    <label>Favorite quote: </label>
+    <input type="text" placeholder="Write your favorite quote">
+
+    <label>Password*: </label>
+    <input type="password">
+
+    <label>Favorite food: </label>
+    <select>
+        <option>Hamburger</option>
+        <option>Pizza</option>
+        <option>Fries</option>
+    </select>
+
+    <input type="file" value="Bestand" class="bestand">
+
+    <label>Email address: </label>
+    <input type="email" placeholder="Enter your email address">
+
+    <label>Favorite site: </label>
+    <input type="url" placeholder="Enter the URL of your favorite site">
+
+    <label>Favorite number (1-10): </label>
+    <input type="number">
+
+    <label>Favorite number (11-1000): </label>
+    <input type="range">
+
+    <label>When were you born?</label>
+    <input type="date">
+
+    <label>Belgium zip-code reg number*: </label>
+    <input type="text" placeholder="9999">
+
+    <label>Search for something: </label>
+    <input type="text">
+
+    <label>What is your favorite color</label>
+    <input type="color" class="color">
+
+    <button id="submit">Submit</button>
+<link href="Scripts/code.js">
+</form>
+</body>
+</html>

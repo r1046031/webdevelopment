@@ -1,0 +1,29 @@
+form {
+    display: grid;
+    grid-template-columns: 250px auto;
+    gap: 6px;
+    max-width: 500px;
+}
+
+#sports, #gender, .bestand {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#sports input, #gender input {
+    width: 15px;
+    height: 15px;
+}
+
+input, select, button {
+    padding: 5px;
+    width: 100%;
+}
+
+.color {
+    width: 100px;
+    height: 30px;
+}

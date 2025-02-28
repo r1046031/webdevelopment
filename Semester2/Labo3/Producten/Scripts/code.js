@@ -8,15 +8,19 @@ const herberekenen = () => {
     let prijzen = document.getElementsByClassName('prijs');
     let totalen = document.getElementsByClassName('totaal');
     let eindtotaal = document.getElementsByClassName('eindtotaal');
+    let btwPercentages = document.getElementsByClassName('btw');
 
     let prijs1 = prijzen[0].innerText.substring(0, 5);
-    let totaal1 = aantallen[0].value * parseFloat(prijs1);
+    let btw1 = btwPercentages[0].innerText.substring(0, 1);
+    let totaal1 = aantallen[0].value * parseFloat(prijs1) * (1 + (btw1 / 100));
 
     let prijs2 = prijzen[1].innerText.substring(0, 5);
-    let totaal2 = aantallen[1].value * parseFloat(prijs1);
+    let btw2 = btwPercentages[0].innerText.substring(0, 2);
+    let totaal2 = aantallen[1].value * parseFloat(prijs2) * (1 + (btw2 / 100));
 
     let prijs3 = prijzen[2].innerText.substring(0, 5);
-    let totaal3 = aantallen[2].value * parseFloat(prijs1);
+    let btw3 = btwPercentages[0].innerText.substring(0, 2);
+    let totaal3 = aantallen[2].value * parseFloat(prijs3) * (1 + (btw3 / 100));
 
     let eindtotaalBerekening = totaal1 + totaal2 + totaal3;
 
