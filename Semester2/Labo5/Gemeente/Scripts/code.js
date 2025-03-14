@@ -21,6 +21,7 @@ const setup = () => {
 
     i = 0;
     gemeenteLijst.innerHTML = "";
+    gemeentes = gemeentes.toSorted();
 
     for(i=0;i<gemeentes.length;i++) {
         gemeenteLijst.innerHTML += "<option>" + gemeentes[i] + "</option>";
