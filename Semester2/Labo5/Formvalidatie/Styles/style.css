@@ -1,0 +1,11 @@
+fieldset {
+    border: none;
+}
+
+.errorMessage {
+    color: red;
+}
+
+input.invalid {
+    border: 1px solid red;
+}

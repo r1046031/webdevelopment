@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formvalidatie</title>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+<form>
+    <fieldset>
+        <label for="txtVoornaam">Voornaam</label>
+        <input type="text" id="txtVoornaam" required>
+        <span class="errorMessage" id="errVoornaam"></span>
+    </fieldset>
+    <fieldset>
+        <label for="txtFamilienaam">Familienaam</label>
+        <input type="text" id="txtFamilienaam" required>
+        <span class="errorMessage" id="errFamilienaam"></span>
+    </fieldset>
+    <fieldset>
+        <label for="txtGeboortedatum">Geboortedatum</label>
+        <input type="text" id="txtGeboortedatum" required>
+        <span class="errorMessage" id="errGeboortedatum"></span>
+    </fieldset>
+    <fieldset>
+        <label for="txtEmail">E-mail</label>
+        <input type="text" id="txtEmail" required>
+        <span class="errorMessage" id="errEmail"></span>
+    </fieldset>
+    <fieldset>
+        <label for="txtKinderen">Aantal kinderen</label>
+        <input type="text" id="txtKinderen">
+        <span class="errorMessage" id="errKinderen"></span>
+    </fieldset>
+    <fieldset>
+        <button id="btnValideer">Valideer</button>
+    </fieldset>
+</form>
+<script src="Scripts/code.js"></script>
+</body>
+</html>
