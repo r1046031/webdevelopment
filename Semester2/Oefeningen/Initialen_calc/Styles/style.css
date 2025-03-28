@@ -1,0 +1,29 @@
+main, section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main section p {
+    text-align: center;
+}
+
+input, button {
+    font-size: 1.2em;
+}
+
+button {
+    font-weight: bold;
+}
+
+.errorMessage {
+    color: red;
+}
+
+button, .errorMessage {
+    margin-top: 10px;
+}

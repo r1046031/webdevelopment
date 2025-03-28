@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Styles/style.css">
+    <title>Guess The Number!</title>
+</head>
+<body>
+<main>
+    <section>
+        <h1>Welkom bij "Guess The Number!"</h1>
+        <p>
+            Tik een getal tussen 1-100 in, het programma zal dit getal proberen te raden!
+            <br>
+            Om het programma te helpen met raden, moet je in het tweede tekstvak per guess "hoger",
+            "lager" of "correct" intikken.
+        </p>
+        <fieldset>
+            <label for="nmbGetal">Getal</label>
+            <input type="number" id="nmbGetal" min="1" max="100">
+        </fieldset>
+        <fieldset>
+            <label for="txtHogerLager">Hoger-lager-correct?</label>
+            <input type="text" id="txtHogerLager">
+        </fieldset>
+        <fieldset>
+            <button id="btnSubmit">Submit</button>
+        </fieldset>
+    </section>
+</main>
+<script src="Scripts/code.js"></script>
+</body>
+</html>

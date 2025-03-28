@@ -1,0 +1,23 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main, button, input {
+    font-size: 1.2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+fieldset {
+    border: none;
+}
+
+span {
+    background-color: yellow;
+}

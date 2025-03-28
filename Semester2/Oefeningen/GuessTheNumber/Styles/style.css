@@ -1,22 +1,21 @@
-main, div {
+main section {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+main, button {
+    font-size: 1.1em;
 }
 
 main {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-div {
-    margin: 10px;
-    padding: 10px;
+fieldset {
+    border: none;
 }
 
-label, button, p {
+#btnSubmit, #resultaatP {
     font-weight: bold;
-}
-
-input, button, p {
-    font-size: 1.2em;
 }

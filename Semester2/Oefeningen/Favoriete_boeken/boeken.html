@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Styles/style.css">
+    <title>Favoriete boeken</title>
+</head>
+<body>
+<form>
+    <main>
+        <fieldset>
+            <label for="txtVoornaam">Voornaam</label>
+            <input type="text" id="txtVoornaam">
+            <label for="txtFamilienaam">Familienaam</label>
+            <input type="text" id="txtFamilienaam">
+        </fieldset>
+        <fieldset>
+            <p>Welk boek ben je nu aan het lezen?</p>
+            <label for="txtTitel">Titel</label>
+            <input type="text" id="txtTitel">
+            <label for="txtAuteur">Auteur</label>
+            <input type="text" id="txtAuteur">
+        </fieldset>
+        <fieldset>
+            <label for="slHoeGraag">Hoe graag lees je?</label>
+            <input type="range" id="slHoeGraag" min="0" max="100">
+        </fieldset>
+        <fieldset>
+            <p>Favoriete genre(s)</p>
+            <div id="fantasy">
+                <label for="rdbFantasy">Fantasy</label>
+                <input type="radio" value="fs" id="rdbFantasy">
+            </div>
+            <div id="sciFi">
+                <label for="rdbSciFi">Science fiction</label>
+                <input type="radio" value="sf" id="rdbSciFi">
+            </div>
+            <div id="drama">
+                <label for="rdbDrama">Drama</label>
+                <input type="radio" value="dr" id="rdbDrama">
+            </div>
+            <div id="nonFictie">
+                <label for="rdbNonFictie">Non-fictie</label>
+                <input type="radio" value="nf" id="rdbNonFictie">
+            </div>
+        </fieldset>
+        <fieldset>
+            <label for="slcLeesdoel">Hoeveel boeken wil je dit jaar lezen?</label>
+            <select id="slcLeesdoel">
+                <option value="0">0</option>
+                <option value="6">6</option>
+                <option value="12">12</option>
+                <option value="24">24</option>
+                <option value="48">48</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <button id="btnSubmit">Submit</button>
+        </fieldset>
+    </main>
+</form>
+<script src="Scripts/code.js"></script>
+</body>
+</html>
