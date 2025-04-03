@@ -1,5 +1,3 @@
-let added = 0;
-
 const setup = () => {
     let btnSubmit = document.getElementById('btnSubmit');
 
@@ -27,19 +25,30 @@ const berekenSubstring = () => {
         slice = "\"" + slice + "\"";
     }
 
-    if(added === 1) {
-        let ptag = document.querySelector('p');
-        ptag.remove();
+    let ptag = document.getElementById('resultaatP');
+
+    if(ptag !== null) {
+        ptag = document.getElementById('resultaatP');
+
+        ptag.textContent = "Met substring: " + substring;
+
+        let br = document.createElement('br');
+        ptag.appendChild(br);
+
+        ptag.append("Met slice: " + slice);
+    } else {
+        let resultaat = document.createElement('p');
+
+        resultaat.setAttribute('id', 'resultaatP');
+        resultaat.textContent = "Met substring: " + substring;
+
+        let br = document.createElement('br');
+        resultaat.appendChild(br);
+
+        resultaat.append("Met slice: " + slice);
+
+        main[0].appendChild(resultaat);
     }
-
-    let resultaat = document.createElement('p');
-    resultaat.textContent = "Met substring: " + substring;
-    let br = document.createElement('br');
-    resultaat.appendChild(br);
-    resultaat.append("Met slice: " + slice);
-    main[0].appendChild(resultaat);
-
-    added = 1;
 }
 
 window.addEventListener("load", setup);

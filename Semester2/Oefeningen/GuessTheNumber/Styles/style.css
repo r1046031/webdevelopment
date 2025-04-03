@@ -16,6 +16,10 @@ fieldset {
     border: none;
 }
 
-#btnSubmit, #resultaatP {
+#btnSubmit, #resultaatP, #btnReset {
     font-weight: bold;
+}
+
+.errorMessage {
+    color: red;
 }

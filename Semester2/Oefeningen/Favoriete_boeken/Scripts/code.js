@@ -1,4 +1,6 @@
-let added = 0;
+global = {
+    added: 0
+}
 
 const setup = () => {
     let btnSubmit = document.getElementById('btnSubmit');
@@ -18,7 +20,7 @@ const verwerken = (event) => {
     let rdbNonFictie = document.getElementById('rdbNonFictie');
     let slcLeesdoel = document.getElementById('slcLeesdoel');
 
-    if (added === 1) {
+    if (global.added === 1) {
         let resultPDel = document.getElementById('resultP');
         resultPDel.remove();
     }
@@ -66,7 +68,7 @@ const verwerken = (event) => {
     let main = document.querySelector('main');
     main.appendChild(resultP);
 
-    added = 1;
+    global.added = 1;
 }
 
 window.addEventListener("load", setup);

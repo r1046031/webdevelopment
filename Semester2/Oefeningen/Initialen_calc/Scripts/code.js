@@ -1,5 +1,3 @@
-let added = 0;
-
 const setup = () => {
     let btnSubmit = document.getElementById("btnSubmit");
 
@@ -19,15 +17,15 @@ const berekenInitialen = () => {
         let split = txtTekst.value.substring(txtTekst.value.indexOf(" ") + 1, txtTekst.value.length - 1)
         let resultaat = txtTekst.value.substring(0, 1) + split.substring(0,1);
 
-        if(added === 1) {
-            let resultaatPDel = document.querySelectorAll('p');
-            resultaatPDel[1].remove();
+        let resultaatPBestaat = document.getElementById('resultaatP');
+        if(resultaatPBestaat !== null) {
+            resultaatPBestaat.textContent = resultaat.toUpperCase();
+        } else {
+            let resultaatP = document.createElement('p');
+            resultaatP.setAttribute('id', 'resultaatP');
+            resultaatP.textContent = resultaat.toUpperCase();
+            section[0].appendChild(resultaatP);
         }
-
-        let resultaatP = document.createElement('p');
-        resultaatP.textContent = resultaat.toUpperCase();
-        section[0].appendChild(resultaatP);
-        added = 1;
     }
 }
 
