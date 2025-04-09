@@ -1,100 +1,78 @@
-global = {
+const global = {
     items: []
-}
+};
 
 const setup = () => {
     let btnToevoegen = document.getElementById('btnToevoegen');
     let btnHighlighten = document.getElementById('btnHighlighten');
 
     btnToevoegen.addEventListener('click', toevoegen);
-    btnHighlighten.addEventListener('click', highlighten)
-}
+    btnHighlighten.addEventListener('click', highlighten);
+};
 
 const toevoegen = () => {
-    let txtToevoegen = document.getElementById('txtToevoegen');
+    const txtToevoegen = document.getElementById('txtToevoegen');
 
-    if(txtToevoegen.value !== "") {
+    if (txtToevoegen.value.trim() !== "") {
         global.items.push(txtToevoegen.value);
+        txtToevoegen.value = "";
+        refreshItems();
     }
-
-    refreshItems();
-}
+};
 
 const highlighten = () => {
-    let txtHighlight = document.getElementById('txtHighlight');
+    const txtHighlight = document.getElementById('txtHighlight');
+    const value = txtHighlight.value.trim();
 
-    for(let i = 0;i<global.items.length;i++) {
-        let i2 = 0;
-        while(i2 < global.items[i].length) {
-            if (global.items[i].substring(i2, i2 + txtHighlight.value.length) === txtHighlight.value) {
-
-            }
-        }
+    if (value !== "") {
+        refreshItems(value);
     }
-}
+};
 
-const refreshItems = () => {
-    let resultaat = "";
+const refreshItems = (highlightValue = "") => {
+    // Remove existing result if present
+    let oldP = document.getElementById('resultaatP');
+    if (oldP) oldP.remove();
 
-    for(let i=0;i<global.items.length;i++) {
-        if(i !== global.items[i].length - 1) {
-            resultaat += global.items[i] + "newline";
+    const resultaatP = document.createElement('p');
+    resultaatP.id = 'resultaatP';
+
+    global.items.forEach((item, index) => {
+        if (index > 0) {
+            resultaatP.appendChild(document.createElement('br'));
+        }
+
+        if (highlightValue && item.includes(highlightValue)) {
+            // Highlight all occurrences
+            let remaining = item;
+            while (remaining.length > 0) {
+                const index = remaining.indexOf(highlightValue);
+
+                if (index === -1) {
+                    resultaatP.appendChild(document.createTextNode(remaining));
+                    break;
+                }
+
+                // Add text before match
+                if (index > 0) {
+                    resultaatP.appendChild(document.createTextNode(remaining.slice(0, index)));
+                }
+
+                // Add highlighted span
+                const span = document.createElement('span');
+                span.textContent = highlightValue;
+                span.style.backgroundColor = 'yellow';
+                resultaatP.appendChild(span);
+
+                // Cut processed part
+                remaining = remaining.slice(index + highlightValue.length);
+            }
         } else {
-            resultaat += global.items[i];
+            resultaatP.appendChild(document.createTextNode(item));
         }
-    }
+    });
 
-    console.log(resultaat);
-
-    let resultaatP = document.getElementById('resultaatP');
-    if(resultaatP === null) {
-        resultaatP = document.createElement('p');
-        resultaatP.setAttribute('id', 'resultaatP');
-
-        let main = document.getElementsByTagName('main');
-        main[0].appendChild(resultaatP);
-    }
-
-    //resultaat
-    //alles waar er span staat moet er een span tag komen
-    //alles waar er newline staat moet er newline komen
-    if(resultaat.includes("newline") === true) {
-        let allFound = false;
-        let searchstring = resultaat;
-        let newResultaat = "";
-        let i = 0;
-
-        do {
-            console.log("ss " + searchstring);
-
-            //newresultaat werkt
-            newResultaat += searchstring.substring(0, searchstring.indexOf("newline"));
-
-            //hier nu nog br tags toevoegen
-            //per keer hierboven een br tag toevoegen en daaraan dan newResultaat appenden aan de p tag
-            //wel nog kijken voor dat bij begin geen br tag wordt toegevoegd
-
-            console.log("nr " + newResultaat);
-
-            if(searchstring.includes("newline") === false || searchstring.indexOf("newline") + 7 === searchstring.length) {
-                allFound = true;
-            } else {
-                searchstring = searchstring.substring(searchstring.indexOf("newline") + 7, resultaat.length);
-            }
-
-            console.log("ss " + searchstring);
-
-            i++;
-        } while(allFound === false || i === resultaat.length - 1)
-    }
-
-    /*
-    if(resultaat.includes("span") === true) {
-
-    }
-     */
-
-
-}
+    document.querySelector('main').appendChild(resultaatP);
+};
 
 window.addEventListener("load", setup);

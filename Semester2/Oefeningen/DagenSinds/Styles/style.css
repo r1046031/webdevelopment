@@ -1,0 +1,18 @@
+main {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p {
+    border: 2px solid dodgerblue;
+    font-size: 1.4em;
+    text-align: center;
+
+    width: 50%;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+span {
+    font-weight: bold;
+}
