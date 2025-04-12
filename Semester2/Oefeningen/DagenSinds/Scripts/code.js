@@ -42,9 +42,13 @@ const setup = () => {
     resultaatP.appendChild(span2);
 
     main[0].appendChild(resultaatP);
+
+    //check if 28, maakt een image die als je die klikt een geluid afspeelt
+    //door google's autoplay policy...
+    checkIf28(new Date(Date.now()));
 }
 
-let jarenMaandenDagenBerekenen = (datum) => {
+const jarenMaandenDagenBerekenen = (datum) => {
     let resultatenArray = [];
     let datumVandaag = new Date(Date.now());
 
@@ -65,14 +69,34 @@ let jarenMaandenDagenBerekenen = (datum) => {
     }
 
     resultatenArray.push(years, months, days);
-    console.log(years);
-    console.log(months);
-    console.log(days);
-
     return resultatenArray;
 }
 
-let datumDisplay = (datum) => {
+const checkIf28 = (datum) => {
+    if(datum.getDate() === 28) {
+        let main = document.getElementsByTagName('main');
+
+        let partyPopperDiv = document.createElement('div');
+        partyPopperDiv.setAttribute('id', 'partyPopperDiv');
+
+        let newImg = document.createElement('img');
+        newImg.setAttribute('src', "Images/party_popper.jpg");
+        newImg.setAttribute('alt', "party_popper");
+        newImg.setAttribute('id', 'partyPopperImg');
+        newImg.addEventListener('click', playSound);
+
+        partyPopperDiv.appendChild(newImg);
+
+        main[0].appendChild(partyPopperDiv);
+    }
+}
+
+const playSound = () => {
+    let audio = new Audio('Audio/dj-airhorn-sound-39405.mp3');
+    audio.play();
+}
+
+const datumDisplay = (datum) => {
     let dagDisplay = datum.getDate();
     let maandDisplay = datum.getMonth() + 1;
 
