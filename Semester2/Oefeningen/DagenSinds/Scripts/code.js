@@ -5,6 +5,7 @@ const setup = () => {
 
     //resultaatP opbouwen
     let resultaatP = document.createElement('p');
+    resultaatP.setAttribute('id', "resultaatP");
     resultaatP.append("Het is nu al:");
 
     let br = document.createElement('br');
@@ -85,7 +86,11 @@ const checkIf28 = (datum) => {
         newImg.setAttribute('id', 'partyPopperImg');
         newImg.addEventListener('click', playSound);
 
+        let newP = document.createElement('p');
+        newP.textContent = "PS: Klik op de image!";
+
         partyPopperDiv.appendChild(newImg);
+        partyPopperDiv.appendChild(newP);
 
         main[0].appendChild(partyPopperDiv);
     }
