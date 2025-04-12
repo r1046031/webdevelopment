@@ -3,6 +3,7 @@ const setup = () => {
 
     let main = document.getElementsByTagName('main');
 
+    //resultaatP opbouwen
     let resultaatP = document.createElement('p');
     resultaatP.append("Het is nu al:");
 
@@ -10,32 +11,65 @@ const setup = () => {
     resultaatP.appendChild(br);
 
     let span = document.createElement('span');
-    span.textContent = maandenBerekenen() + " maanden, en " + dagenBerekenen() + " dagen sinds:";
+
+    //als jaren nul is moet jaren er niet opkomen
+    let jarenTekst = "";
+    let jaren = jarenMaandenDagenBerekenen(datumSamen)[0];
+    if (jaren !== 0) {
+        if(jaren.toString().length !== 1) {
+            jarenTekst = jaren + " jaren, ";
+        } else {
+            jarenTekst = jaren + " jaar, ";
+        }
+    }
+
+    span.textContent = jarenTekst + jarenMaandenDagenBerekenen(datumSamen)[1] + " maanden en " + jarenMaandenDagenBerekenen(datumSamen)[2] + " dagen";
+
     resultaatP.appendChild(span);
 
     let br2 = document.createElement('br');
     resultaatP.appendChild(br2);
 
-    resultaatP.append(datumDisplay(datumSamen));
+    resultaatP.append("sinds: ");
+
+    let br3 = document.createElement('br');
+    resultaatP.appendChild(br3);
+
+    let span2 = document.createElement('span');
+    span2.className = "blueSpan";
+    span2.textContent = datumDisplay(datumSamen);
+
+    resultaatP.appendChild(span2);
 
     main[0].appendChild(resultaatP);
 }
 
-let maandenBerekenen = () => {
-    let datumSamen = new Date("2025/01/28");
+let jarenMaandenDagenBerekenen = (datum) => {
+    let resultatenArray = [];
     let datumVandaag = new Date(Date.now());
 
-    console.log(datumSamen);
-    console.log(datumVandaag);
+    let years = datumVandaag.getFullYear() - datum.getFullYear();
+    let months = datumVandaag.getMonth() - datum.getMonth();
+    let days = datumVandaag.getDate() - datum.getDate();
 
-    //moet ik nog doen klopt nog niet
-    return Math.round((datumVandaag - datumSamen) /1000 / 60 / 60 / 24);
-}
+    if (days < 0) {
+        months--;
+        let prevMonth = new Date(datumVandaag.getFullYear(), datumVandaag.getMonth(), 0);
+        days += prevMonth.getDate();
+    }
 
-let dagenBerekenen = () => {
-    let datumSamen = new Date("2025/01/28");
-    let datumVandaag = new Date(Date.now());
-    return Math.floor((datumVandaag - datumSamen) / 1000 / 60 / 60 / 24);
+    // Adjust for negative months
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    resultatenArray.push(years, months, days);
+    console.log(years);
+    console.log(months);
+    console.log(days);
+
+    return resultatenArray;
 }
 
 let datumDisplay = (datum) => {
