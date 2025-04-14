@@ -13,18 +13,7 @@ const setup = () => {
 
     let span = document.createElement('span');
 
-    //als jaren nul is moet jaren er niet opkomen
-    let jarenTekst = "";
-    let jaren = jarenMaandenDagenBerekenen(datumSamen)[0];
-    if (jaren !== 0) {
-        if(jaren.toString().length !== 1) {
-            jarenTekst = jaren + " jaren, ";
-        } else {
-            jarenTekst = jaren + " jaar, ";
-        }
-    }
-
-    span.textContent = jarenTekst + jarenMaandenDagenBerekenen(datumSamen)[1] + " maanden en " + jarenMaandenDagenBerekenen(datumSamen)[2] + " dagen";
+    span.textContent = jarenMaandenDagenBerekenen(datumSamen);
 
     resultaatP.appendChild(span);
 
@@ -69,8 +58,44 @@ const jarenMaandenDagenBerekenen = (datum) => {
         months += 12;
     }
 
-    resultatenArray.push(years, months, days);
-    return resultatenArray;
+    if (days < 0) {
+        months--;
+        const prevMonth = new Date(datum.getFullYear(), datum.getMonth(), 0);
+        days += prevMonth.getDate();
+    }
+
+    // Adjust for negative months
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    //tekstdisplay
+    let yearsText = "";
+    if(years !== 0) {
+        yearsText = years.toString();
+        if(yearsText.length === 1) {
+            yearsText = yearsText + " jaar, ";
+        } else {
+            yearsText = yearsText + " jaren, ";
+        }
+    }
+
+    let monthsText = "";
+    if(months === 1) {
+        monthsText = months + " maand, ";
+    } else if (months !== 0) {
+        monthsText = months + " maanden en ";
+    }
+
+    let daysText = "";
+    if(days === 1) {
+        daysText = days + " dag";
+    } else if (days !== 0) {
+        daysText = days + " dagen";
+    }
+
+    return yearsText + monthsText + daysText;
 }
 
 const checkIf28 = (datum) => {

@@ -27,19 +27,28 @@ const toevoegen = (datum) => {
             errorP.remove();
         }
 
-        //TODO
-        //tekst beter er laten uitzien
-        // knop toevoegen zodat je divs kunt verwijderen
+        //div opbouwen
         let newDiv = document.createElement('div');
         newDiv.className = "countdownDiv";
 
+        //verwijder-knop
+        let delButton = document.createElement('button');
+        delButton.textContent = "X";
+        delButton.addEventListener('click', () => deleteCountdown(delButton));
+
+        newDiv.appendChild(delButton);
+
+        //p tag
         let p = document.createElement('p');
         p.textContent = "Binnen";
 
         let br = document.createElement('br');
         p.appendChild(br);
 
-        p.append(countdownBerekenen(datum));
+        let span = document.createElement('span');
+        span.textContent = countdownBerekenen(datum);
+
+        p.appendChild(span);
 
         let br2 = document.createElement('br');
         p.appendChild(br2);
@@ -49,7 +58,10 @@ const toevoegen = (datum) => {
         let br3 = document.createElement('br');
         p.appendChild(br3);
 
-        p.append(datumDisplay(datum));
+        let span2 = document.createElement('span');
+        span2.textContent = datumDisplay(datum);
+
+        p.appendChild(span2);
 
         newDiv.appendChild(p);
 
@@ -69,6 +81,10 @@ const toevoegen = (datum) => {
             countdowns.appendChild(errorP);
         }
     }
+}
+
+const deleteCountdown = (event) => {
+    event.parentElement.remove();
 }
 
 const datumValidatie = (datum) => {
