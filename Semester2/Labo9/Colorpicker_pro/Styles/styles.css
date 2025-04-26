@@ -1,0 +1,57 @@
+.colorDemoVak {
+	width:80px;
+	height:80px;
+	border:1px solid black;
+}
+
+.colorDemo {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	border: 3px solid black;
+	width: 40%;
+}
+
+main div {
+	width: 100%;
+	padding: 20px;
+}
+
+.sliders, .rgbTekst{
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-around;
+}
+
+.rgbTekst {
+	width: 45%;
+}
+
+.colorDemoMain {
+	width: 60%;
+}
+
+.save {
+	width: 20%;
+}
+
+.save #btnSave {
+	margin-top: 80px;
+}
+
+main section div {
+	margin: 0 auto 0 auto;
+}
+
+.colorDemoVak {
+	margin: 10px;
+}
+
+.savedDemos {
+	margin-left: 0;
+}
+
+.btnColorDemoDelete {
+	margin-left: 60px;
+}
