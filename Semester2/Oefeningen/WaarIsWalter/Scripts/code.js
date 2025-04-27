@@ -17,6 +17,11 @@ const reset = () => {
         aantalKliks.textContent = "Aantal keer geklikt: ";
     }
 
+    //tekst van finishP (krijg je te zien als je het spel hebt beëindigt)
+    let finishP = document.getElementById("finishP");
+    finishP.textContent = "";
+
+    //je kunt niet op btnOpnieuw klikken als je bezig bent met het spel
     let btnOpnieuw = document.getElementById('btnOpnieuw');
     btnOpnieuw.style.pointerEvents = 'none';
 
@@ -28,6 +33,7 @@ const reset = () => {
             images[i].remove();
         }
     }
+
     veldVullen();
 }
 
@@ -48,14 +54,14 @@ const veldVullen = () => {
 
 //functie die helpt met het aanmaken van de images
 const imagesAanmaken = (id, src) => {
-    let section = document.querySelector('section');
+    let imagesGame = document.getElementsByClassName('imagesGame')[0];
 
     let newImg = document.createElement("img");
     newImg.setAttribute('id', id);
     newImg.setAttribute('src', src);
     newImg.addEventListener('click', () => isImageWalter(newImg))
 
-    section.appendChild(newImg);
+    imagesGame.appendChild(newImg);
 }
 
 //voor de images onklikbaar te maken als je klaar bent met het spel (wordt ook dan pas uitgevoerd)
@@ -89,10 +95,20 @@ const isImageWalter = (event) => {
 
     //het aantal keer dat je op een kaartje hebt geklikt tonen (in een p tag)
     if(global.clicks !== 0) {
-        //TODO
-        //span bij de p-tag om het er mooier te doen uitzien
-        let aantalKliks = document.getElementById('aantalKliks');
-        aantalKliks.textContent = "Aantal keer geklikt: " + global.clicks;
+        let spanId = document.getElementById("aantalKliksSpan");
+
+        if(spanId !== null) {
+            spanId.textContent = global.clicks;
+        } else {
+            let aantalKliks = document.getElementById('aantalKliks');
+
+            spanId = document.createElement('span');
+            spanId.setAttribute('id', 'aantalKliksSpan');
+            spanId.setAttribute('class', 'spanClass');
+            spanId.textContent = global.clicks;
+
+            aantalKliks.appendChild(spanId);
+        }
     }
 }
 
@@ -115,17 +131,29 @@ const finish = () => {
     console.log("finish!");
     imagesUnclickableMaken();
 
-    //TODO
-    //iets van p tag ofzo dat op het scherm komt met proficiat
+    //finishP toont een soort felicitatie dat je Walter hebt gevonden
+    let finishP = document.getElementById("finishP");
 
+    finishP.textContent = "Proficiat, je hebt Walter na ";
+
+    let finishPSpan = document.createElement('span');
+    finishPSpan.setAttribute('class', 'spanClass');
+    finishPSpan.textContent = global.clicks;
+    finishP.appendChild(finishPSpan);
+
+    finishP.append(" keer zoeken gevonden!");
+
+    //je kunt weer op btnOpnieuw klikken
     let btnOpnieuw = document.getElementById('btnOpnieuw');
     btnOpnieuw.style.pointerEvents = 'auto';
     btnOpnieuw.addEventListener('click', reset);
+
+    speelGeluidje();
 }
 
-//TODO
-const speelEngGeluidje = () => {
-
+const speelGeluidje = () => {
+    let audio = new Audio('Sounds/you_have_found_walter.mp3');
+    audio.play();
 }
 
 window.addEventListener("load", setup);
