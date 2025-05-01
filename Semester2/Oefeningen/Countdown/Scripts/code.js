@@ -1,3 +1,7 @@
+global = {
+    savedDates: []
+}
+
 const setup = () => {
     let btnToevoegen = document.getElementById('btnToevoegen');
     let txtDatum = document.getElementById('txtDatum');
@@ -6,6 +10,14 @@ const setup = () => {
         let datum = new Date(txtDatum.value);
         toevoegen(datum);
     });
+
+    //TODO
+    let stringArray = localStorage.getItem("savedDatesArray");
+    if(stringArray) {
+        global.savedDates = JSON.parse(stringArray);
+
+        console.log(global.savedDates);
+    }
 }
 
 const toevoegen = (datum) => {
@@ -66,6 +78,10 @@ const toevoegen = (datum) => {
         newDiv.appendChild(p);
 
         countdowns.appendChild(newDiv);
+
+        //toevoegen aan localStorage
+        global.savedDates.push(datum);
+        localStorage.setItem("savedDatesArray", JSON.stringify(global.savedDates));
     } else {
         if(errorP !== null) {
             errorP.textContent = "Voeg een datum in groter dan " + datumDisplay(new Date(Date.now())) + "!";
@@ -84,16 +100,30 @@ const toevoegen = (datum) => {
 }
 
 const deleteCountdown = (event) => {
+    //TODO
     event.parentElement.remove();
 }
 
 const datumValidatie = (datum) => {
     if(datum === undefined || datum < Date.now()) {
-        console.log("false");
         return false;
     } else {
-        console.log("true");
-        return true;
+        //TODO
+        let bestaatAlTest = true;
+        let i = 0;
+
+        while(bestaatAlTest === true && i<global.savedDates.length) {
+            console.log(global.savedDates[i]);
+            console.log(datum.toISOString());
+
+            if (global.savedDates[i]=== datum.toISOString()) {
+                bestaatAlTest = false;
+            }
+
+            i++;
+        }
+
+        return bestaatAlTest;
     }
 }
 

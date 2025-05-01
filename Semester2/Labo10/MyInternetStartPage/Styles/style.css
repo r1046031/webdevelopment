@@ -1,0 +1,79 @@
+.infoSection label {
+    visibility: hidden;
+}
+
+.infoSection p:last-of-type {
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+#btnGo, input {
+    padding: 10px;
+}
+
+#btnGo {
+    color: white;
+    background-color: #28a745;
+    border: none;
+}
+
+.historySection {
+    align-content: center;
+}
+
+.historySection h1 {
+    margin-top: 10px;
+    font-size: 1.4em;
+}
+
+.card {
+    width: 250px;
+    height: 140px;
+    text-align: left;
+    color: white;
+    margin: 10px;
+}
+
+.card h5 {
+    margin-top: 10px;
+    font-size: 1.4em;
+}
+
+.cardX {
+    background-color: #1da1f2;
+}
+
+.cardYoutube {
+    background-color: #ff0000;
+}
+
+.cardInstagram {
+    background-color: #c32aa3;
+}
+
+.cardGoogle {
+    background-color: #4285f4;
+}
+
+.cardGoogle a {
+    background-color: #ea4335;
+    color: white;
+}
+
+.cardInstagram a {
+    background-color: #f46f2f;
+    color: white;
+}
+
+.cardX a, .cardYoutube a {
+    background-color: black;
+    color: white;
+}
+
+.card .cardDelButton {
+    color: white;
+    background-color: red;
+    margin-left: 135px;
+    margin-top: -135px;
+    border: 2px solid black;
+}
