@@ -164,7 +164,7 @@ const historyCardToevoegen = (website, zoekterm) => {
     go.addEventListener("click", () => opzoeken(website, zoekterm));
 
     //ik heb een delete functionaliteit toegevoegd als uitbreiding
-    //hier maak ik een knop met een eventlistener naar updateLocalStorage die ik dan heb uitgebreid
+    //dit is een knop met een event listener naar updateLocalStorage, een functie die ik dan heb uitgebreid
     let del = document.createElement("a");
     del.setAttribute("class", "btn btn-secondary cardDelButton");
     del.textContent = "X";
