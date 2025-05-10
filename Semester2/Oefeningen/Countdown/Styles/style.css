@@ -9,6 +9,11 @@ main section {
     text-align: center;
 }
 
+#nogGeenDatumsP {
+    color: grey;
+    font-style: italic;
+}
+
 .errorMessage {
     color: red;
 }
@@ -17,6 +22,7 @@ main section {
     border: 4px solid dodgerblue;
     width: 500px;
     text-align: center;
+    background-color: ghostwhite;
 
     margin-top: 20px;
     margin-left: auto;
@@ -35,11 +41,12 @@ main section {
 }
 
 .countdownDiv button {
-    background-color: white;
+    background-color: lightcoral;
     border: 2px solid black;
     font-weight: bold;
     font-size: 1.2em;
     margin: 10px;
+    color: white;
 
     position: relative;
     left: 44%;

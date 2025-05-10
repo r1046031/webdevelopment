@@ -1,0 +1,49 @@
+Substring calc:
+
+2 number velden
+1 tekstveld
+1 knop
+
+Als er op de knop wordt gedrukt wordt de substring berekend (numberveld 1 en 2) van de ingegeven tekst.
+
+Uitbreiding: ik heb slice er ook bij gedaan.
+
+Initialen calc:
+
+Er is een tekstvak en een knop. Er is ook een p tag waar de initialen van de ingevulde naam in het tekstvak worden gedisplayed.
+
+Form favoriete boeken:
+
+Kies zelf welke inputvelden je wil toevoegen
+voeg wel een knop toe, als er op de knop wordt geklikt wordt het formulier verwerkt en de verwerking
+van het formulier wordt getoond in een p-tag.
+
+Guess the number:
+
+Een speler kiest een nummer tussen 1-100 en het programma probeert het nummer te raden.
+De user antwoordt "higher", "lower" of "correct".
+Het spel wordt gespeeld via een tekstveld, een button en een p-tag.
+
+Highlighting:
+
+Er zijn twee tekstvelden, twee button en een p-tag. De user typt een woord en kan dat toevoegen aan een array waarvan de waarden getoond worden in de p-tag. Het tweede tekstveld is een "highlight" veld. De gebruiker kan hier bijvoorbeeld "ja" intikken en dan worden bij alle woorden die "ja" (achter elkaar) bevatten het stukje "ja" gefluoreceerd.
+
+Maanden en dagen sinds 28/01/2025:
+
+Oefening spreekt voor zichzelf!
+
+Aftellen pagina:
+
+Een pagina met een tekstbox, button en hoe het resultaat wordt gedisplayed kies je zelf nog. Je typt hier zelf een datum in waarnaar je aftelt.
+
+Waar is Walter:
+
+Er is een speelveld met lege images en ergens een image van Walter. Het doel is dat de speler walter zoekt! Er is ook een knop voor opnieuw te spelen. Wie is Walter? Goeie vraag, find out!
+
+8 puzzle:
+
+Geïnspireerd door de curus introduction to AI. Een schuifpuzzel (de pagina zal 8 'vakjes' bevatten). De schuifpuzzel zal bestaan uit images, het doel is om de image weer heel te krijgen. Als je er op klikt verschuift een stukje naar waar hij kan verschuiven als hij kan verschuiven, want er is 1 'empty' spot. Het doel is om de puzzel weer heel te krijgen. Er is ook een reset button om opnieuw te spelen!
+
+Pace calculator:
+
+Een aantal velden waarmee je de snelheid die je moet lopen om een bepaalde afstand in een bepaald tijdsduur te lopen. Je kunt de snelheid, afstand of tijdsduur berekenen.

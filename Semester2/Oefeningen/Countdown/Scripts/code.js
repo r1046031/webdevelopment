@@ -8,122 +8,157 @@ const setup = () => {
 
     btnToevoegen.addEventListener('click', () => {
         let datum = new Date(txtDatum.value);
-        toevoegen(datum);
+        nieuweDatumToevoegen(datum);
     });
 
-    //TODO
     let stringArray = localStorage.getItem("savedDatesArray");
     if(stringArray) {
         global.savedDates = JSON.parse(stringArray);
+    }
 
-        console.log(global.savedDates);
+    refreshCountdowns();
+}
+
+const nogGeenCountdowns = () => {
+    let countdowns = document.getElementById('countdownsSection');
+
+    let nogGeenDatumsP = document.createElement('p');
+    nogGeenDatumsP.textContent = "Nog geen datums toegevoegd.";
+    nogGeenDatumsP.setAttribute('id', 'nogGeenDatumsP');
+
+    countdowns.appendChild(nogGeenDatumsP);
+
+    //errorP kan er nog staan
+    let errorP = document.getElementById('errorP');
+    if(errorP !== null) {
+        errorP.remove();
     }
 }
 
-const toevoegen = (datum) => {
-    let countdowns = document.getElementById('countdowns');
-    if(countdowns === null) {
-        let main = document.querySelector('main');
+const refreshCountdowns = () => {
+    if(global.savedDates.length === 0) {
+        nogGeenCountdowns();
+    } else {
+        for(let i=0; i<global.savedDates.length; i++) {
+            let datum = new Date(global.savedDates[i]);
+            countdownToevoegen(datum, i);
+        }
+    }
+}
 
-        countdowns = document.createElement('section');
-        countdowns.id = 'countdowns';
-
-        main.appendChild(countdowns);
+const nieuweDatumToevoegen = (datum) => {
+    let nogGeenDatumsP = document.getElementById('nogGeenDatumsP');
+    if(nogGeenDatumsP !== null) {
+        nogGeenDatumsP.remove();
     }
 
     let errorP = document.getElementById('errorP');
     if(datumValidatie(datum) !== false) {
-        let countdowns = document.getElementById('countdowns');
-
         if(errorP !== null) {
             errorP.remove();
         }
 
-        //div opbouwen
-        let newDiv = document.createElement('div');
-        newDiv.className = "countdownDiv";
-
-        //verwijder-knop
-        let delButton = document.createElement('button');
-        delButton.textContent = "X";
-        delButton.addEventListener('click', () => deleteCountdown(delButton));
-
-        newDiv.appendChild(delButton);
-
-        //p tag
-        let p = document.createElement('p');
-        p.textContent = "Binnen";
-
-        let br = document.createElement('br');
-        p.appendChild(br);
-
-        let span = document.createElement('span');
-        span.textContent = countdownBerekenen(datum);
-
-        p.appendChild(span);
-
-        let br2 = document.createElement('br');
-        p.appendChild(br2);
-
-        p.append("is het: ");
-
-        let br3 = document.createElement('br');
-        p.appendChild(br3);
-
-        let span2 = document.createElement('span');
-        span2.textContent = datumDisplay(datum);
-
-        p.appendChild(span2);
-
-        newDiv.appendChild(p);
-
-        countdowns.appendChild(newDiv);
-
         //toevoegen aan localStorage
         global.savedDates.push(datum);
         localStorage.setItem("savedDatesArray", JSON.stringify(global.savedDates));
+
+        countdownToevoegen(datum, (global.savedDates.length - 1));
     } else {
         if(errorP !== null) {
-            errorP.textContent = "Voeg een datum in groter dan " + datumDisplay(new Date(Date.now())) + "!";
+            errorP.textContent = "Voeg een datum in groter dan " + datumDisplay(new Date(Date.now())) + " en een datum die niet al eerder is toegevoegd!";
         } else {
-            let countdowns = document.getElementById('countdowns');
+            let countdowns = document.getElementById('countdownsSection');
 
             errorP = document.createElement('p');
             errorP.id = "errorP";
             errorP.className = "errorMessage";
-            let test = new Date(Date.now());
-            errorP.textContent = "Voeg een datum in groter dan " + datumDisplay(test) + "!";
+            errorP.textContent = "Voeg een datum in groter dan " + datumDisplay(new Date(Date.now())) + " en een datum die niet al eerder is toegevoegd!";
 
             countdowns.appendChild(errorP);
         }
     }
 }
 
+const countdownToevoegen = (datum, id) => {
+    let countdowns = document.getElementById('countdownsSection');
+
+    //div opbouwen
+    let newDiv = document.createElement('div');
+    newDiv.className = "countdownDiv";
+    newDiv.setAttribute('id', ('countdownDiv' + id));
+
+    //verwijder-knop
+    let delButton = document.createElement('button');
+    delButton.textContent = "X";
+    delButton.addEventListener('click', () => deleteCountdown(delButton));
+
+    newDiv.appendChild(delButton);
+
+    //p tag
+    let p = document.createElement('p');
+    p.textContent = "Binnen";
+
+    let br = document.createElement('br');
+    p.appendChild(br);
+
+    let span = document.createElement('span');
+    span.textContent = countdownBerekenen(datum);
+
+    p.appendChild(span);
+
+    let br2 = document.createElement('br');
+    p.appendChild(br2);
+
+    p.append("is het: ");
+
+    let br3 = document.createElement('br');
+    p.appendChild(br3);
+
+    let span2 = document.createElement('span');
+    span2.textContent = datumDisplay(datum);
+
+    p.appendChild(span2);
+
+    newDiv.appendChild(p);
+
+    countdowns.appendChild(newDiv);
+}
+
 const deleteCountdown = (event) => {
-    //TODO
+    //uit de localstorage verwijderen
+    let id = event.parentElement.getAttribute('id');
+    let indexSubstring = parseInt(id.substring(id.length - 1, id.length));
+
+    global.savedDates.splice(indexSubstring, 1);
+    localStorage.setItem("savedDatesArray", JSON.stringify(global.savedDates));
+
     event.parentElement.remove();
+
+    if(global.savedDates.length === 0){
+        nogGeenCountdowns();
+    }
 }
 
 const datumValidatie = (datum) => {
     if(datum === undefined || datum < Date.now()) {
         return false;
     } else {
-        //TODO
-        let bestaatAlTest = true;
+        let bestaatNiet = true;
         let i = 0;
 
-        while(bestaatAlTest === true && i<global.savedDates.length) {
-            console.log(global.savedDates[i]);
+        while(bestaatNiet === true && i<global.savedDates.length) {
+            let datumArray = new Date(global.savedDates[i]);
+            console.log(datumArray.toISOString());
             console.log(datum.toISOString());
 
-            if (global.savedDates[i]=== datum.toISOString()) {
-                bestaatAlTest = false;
+            if (datumArray.toISOString() === datum.toISOString()) {
+                bestaatNiet = false;
             }
 
             i++;
         }
 
-        return bestaatAlTest;
+        return bestaatNiet;
     }
 }
 
