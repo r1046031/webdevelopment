@@ -35,3 +35,12 @@ button {
 .puzzleTiles:nth-child(3n+1) {
     border-left: 1px solid black;
 }
+
+#finishedP span {
+    font-weight: bold;
+}
+
+.locked {
+    pointer-events: none;
+    opacity: 0.6; /* optional: makes the puzzle look disabled */
+}
