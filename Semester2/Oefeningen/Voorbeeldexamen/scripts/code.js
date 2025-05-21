@@ -69,11 +69,29 @@ const setup = () => {
     let btnStart = document.getElementById("start");
     btnStart.addEventListener("click", loadQuiz);
 
+    let btnReset = document.getElementById("reset");
+    btnReset.addEventListener("click", resetHighScores);
+
     let highScoresLocalStorage = localStorage.getItem("highScores");
     if(highScoresLocalStorage) {
-        global.highScores = highScoresLocalStorage;
+        global.highScores = JSON.parse(highScoresLocalStorage);
+        loadHighScores();
     } else {
-        global.highScores[0] = 0;
+        localStorage.setItem("highScores", JSON.stringify(global.highScores));
+    }
+}
+
+const resetHighScores = () => {
+    global.highScores = [];
+    localStorage.setItem("highScores", JSON.stringify(global.highScores));
+
+    let highScoresPTags = document.querySelectorAll("#highscores p");
+    if(highScoresPTags.length > 0) {
+        let i = highScoresPTags.length;
+        while(i > 0) {
+            i--;
+            highScoresPTags[i].remove();
+        }
     }
 }
 
@@ -81,31 +99,37 @@ const loadQuiz = () => {
     let btnStart = document.getElementById("start");
     btnStart.remove();
 
+    let btnSubmit = document.getElementById("submit");
+    btnSubmit.addEventListener('click', indienen);
+
     makeQuestionsNav();
+
+    let btnOpslaan = document.querySelector("#quiz > div.col-10 > div > div.card-footer > button");
+    btnOpslaan.addEventListener('click', opslaan);
 
     let question1 = document.querySelector('#quiz #questions #question1');
     question1.setAttribute('selected', 'true');
 
     loadQuestion(question1);
 
+    global.highScores.push(10);
     loadHighScores();
 }
 
 const loadHighScores = () => {
-    let highScores = document.querySelector("#highscores");
+    let highScoresPTags = document.querySelectorAll("#highscores p");
+    if(highScoresPTags.length > 0) {
+        for(let i = 0; i < highScoresPTags.length; i++) {
+            highScoresPTags[i].textContent = "Reeks " + (i + 1) + ": " + global.highScores[i];
+        }
+    } else {
+        let highScores = document.getElementById('highscores');
 
-    for(let i = 0; i < global.highScores.length; i++) {
-        let highScoreP = document.createElement("p");
-        highScoreP.textContent = "Reeks " + i + ": " + global.highScores[i];
-        highScores.appendChild(highScoreP);
-    }
-}
-
-const refreshHighScores = () => {
-    let highScores = document.querySelectorAll("#highscores p");
-
-    for(let i = 0; i < global.highScores.length; i++) {
-        highScores[i].textContent = "Reeks " + i + ": " + global.highScores[i];
+        for(let i = 0; i < global.highScores.length; i++) {
+            let newP = document.createElement("p");
+            newP.textContent = "Reeks " + (i + 1) + ": " + global.highScores[i];
+            highScores.appendChild(newP);
+        }
     }
 }
 
@@ -138,6 +162,7 @@ const loadQuestion = (event) => {
 
 const makeQuestionCard = (id) => {
     let card = document.querySelector('#quiz .col-10 .card');
+    card.setAttribute('data-question', id);
 
     let cardHeader = card.querySelector('.card-header');
     cardHeader.textContent = "Vraag #" + (id + 1);
@@ -148,9 +173,10 @@ const makeQuestionCard = (id) => {
     let group = card.querySelector('#answers');
     let answers = global.quiz[id].answers;
 
-    //TODO
-    for(let i = 0; i < group.children.length; i++) {
+    let i = group.children.length - 1;
+    while(group.children.length > 0) {
         group.children[i].remove();
+        i--;
     }
 
     for(let i = 0; i < answers.length; i++) {
@@ -160,9 +186,6 @@ const makeQuestionCard = (id) => {
         li.addEventListener('click', () => selectAnswer(li, group, id));
         group.appendChild(li);
     }
-
-    let btnOpslaan = document.querySelector("#quiz > div.col-10 > div > div.card-footer > button");
-    btnOpslaan.addEventListener('click', () => opslaan(id));
 
     let floatEnd = card.querySelector('.card-footer .float-end #started');
     floatEnd.textContent = datumDisplay(Date.now());
@@ -190,28 +213,41 @@ const selectAnswer = (li, ul, id) => {
     console.log(global.quiz[id]);
 }
 
-//TODO
-const opslaan = (id) => {
-    let question = document.getElementById(('question' + (id + 1)));
+const opslaan = () => {
+    let selectedCard = document.querySelector(".card");
+    let selectedCardId = selectedCard.getAttribute("data-question");
+    selectedCardId = parseInt(selectedCardId);
+
+    let question = document.getElementById(('question' + (selectedCardId + 1)));
     question.classList.remove('active');
 
-    if(checkAnswer(id) === true) {
-        question.classList.add('list-group-item-succes');
-        global.highScores[(global.highScores.length - 1)] += 1;
+    if(checkAnswer(selectedCardId) === true) {
+        question.classList.add('list-group-item-success');
     } else {
         question.classList.add('list-group-item-danger');
+        global.highScores[(global.highScores.length - 1)] -= 1;
+    }
 
-        if(global.highScores[(global.highScores.length - 1)] -1 > 0) {
-            global.highScores[(global.highScores.length - 1)] -= 1;
+    loadNextQuestion();
+    loadHighScores();
+}
+
+const loadNextQuestion = () => {
+    let questions = document.querySelectorAll('#questions .list-group-item');
+    let i = 0;
+    let nextQuestionSelected = false;
+    while(nextQuestionSelected === false && i < questions.length) {
+        if((!questions[i].classList.contains('list-group-item-success')) && (!questions[i].classList.contains('list-group-item-danger'))) {
+            nextQuestionSelected = true;
+        } else {
+            i++;
         }
     }
 
-    let firstSelectedQuestion = document.querySelector('#questions .active');
-    let firstSelectedQuestionId = firstSelectedQuestion.getAttribute('data-question');
-    let nextQuestion = document.getElementById(("question" + (firstSelectedQuestionId + 1)));
-    loadQuestion(nextQuestion);
-
-    refreshHighScores();
+    if(nextQuestionSelected === true) {
+        let nextQuestion = questions[i];
+        loadQuestion(nextQuestion);
+    }
 }
 
 const checkAnswer = (id) => {
@@ -239,6 +275,10 @@ const datumDisplay = (datum) => {
     }
 
     return datum.getDay() + " " + maanden[datum.getMonth()] + " om " + hoursDisplay + ":" + minutesDisplay;
+}
+
+const indienen = () => {
+    localStorage.setItem("highScores", JSON.stringify(global.highScores));
 }
 
 window.addEventListener("load", setup);

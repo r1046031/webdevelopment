@@ -28,14 +28,6 @@ button {
     font-size: 1.3em;
 }
 
-.puzzleTiles:nth-child(-n+3) {
-    border-top: 1px solid black;
-}
-
-.puzzleTiles:nth-child(3n+1) {
-    border-left: 1px solid black;
-}
-
 #finishedP span {
     font-weight: bold;
 }

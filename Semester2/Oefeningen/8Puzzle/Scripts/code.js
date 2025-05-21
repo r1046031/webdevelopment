@@ -56,8 +56,6 @@ const make8Puzzle = () => {
 }
 
 const refreshPuzzle = () => {
-    makeTilesClickable();
-
     for(let i = 0;i<global.puzzelplaatjes.length;i++) {
         tileAanmaken(i, global.puzzelplaatjes[i]);
     }
@@ -213,8 +211,6 @@ const isFinished = () => {
 }
 
 const finished = () => {
-    makeTilesUnclickable();
-
     let finishedP = document.createElement('p');
     finishedP.setAttribute('id', 'finishedP');
     finishedP.textContent = "You've done it! Het heeft enkel maar ";
@@ -223,16 +219,18 @@ const finished = () => {
     finishedP.appendChild(span);
     finishedP.append(" kliks genomen!");
 
-    let puzzleSection = document.getElementById('puzzleSection');
-    puzzleSection.appendChild(finishedP);
+    let main = document.getElementsByTagName('main')[0];
+    main.appendChild(finishedP);
+
+    makePuzzleTilesUnclickable();
 }
 
-const makeTilesUnclickable = () => {
-    document.getElementById('puzzleBorder').classList.add('locked');
-}
+const makePuzzleTilesUnclickable = () => {
+    let puzzleTiles = document.getElementsByClassName('puzzleTile');
 
-const makeTilesClickable = () => {
-    document.getElementById('puzzleBorder').classList.remove('locked');
+    for(let i = 0; i < puzzleTiles.length; i++) {
+        puzzleTiles[i].classList.add('locked');
+    }
 }
 
 window.addEventListener("load", setup);
